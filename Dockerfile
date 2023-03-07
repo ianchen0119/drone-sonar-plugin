@@ -3,7 +3,7 @@ RUN mkdir -p /go/src/github.com/ianchen0119/drone-sonar-plugin
 WORKDIR /go/src/github.com/ianchen0119/drone-sonar-plugin 
 COPY *.go ./
 COPY vendor ./vendor/
-RUN GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -o drone-sonar
+RUN GO111MODULE=auto GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -o drone-sonar
 
 FROM openjdk:11.0.8-jre
 
